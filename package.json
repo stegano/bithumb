@@ -1,0 +1,37 @@
+{
+  "name": "bithumb",
+  "version": "1.0.1",
+  "description": "A library that makes the Bithumb Exchange API easy to use",
+  "main": "./built/index.js",
+  "scripts": {
+    "build": "node ./node_modules/rollup/bin/rollup -c ./rollup.config.js",
+    "build-watch": "npm run build -- -w",
+    "lint": "node ./node_modules/tslint/bin/tslint -c ./tslint.json --project ./src/**",
+    "doc": "node ./node_modules/typedoc/bin/typedoc --out ./docs/ ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stegano/bithumb.git"
+  },
+  "author": "Jung Yongwoo",
+  "license": "MIT",
+  "keywords": ["coin", "bithumb"],
+  "bugs": {
+    "url": "https://github.com/stegano/bithumb/issues"
+  },
+  "homepage": "https://github.com/stegano/bithumb#readme",
+  "devDependencies": {
+    "@types/crypto-js": "^3.1.39",
+    "@types/request": "^2.47.0",
+    "rollup": "^0.59.3",
+    "rollup-plugin-typescript2": "^0.14.0",
+    "rollup-plugin-uglify": "^4.0.0",
+    "tslint": "^5.10.0",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "request": "^2.87.0"
+  }
+}
