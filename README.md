@@ -62,7 +62,25 @@ Bithumb.purchaseOrder('BTC', 1000000, 0.1234).then((values) => {
 
 ```
 
-#### For more information, see documentation in `./Docs` directory for details. 
+Send currency to wallet.
+> If you want to donate, copy and paste the code below. 👏 
+```typescript
+const developersWalletAddress = ['1LbS7qmiLdK3ArtYon7XBHujRNqzoPtt5b'];
+const walletAdress = developersWalletAddress[Math.round(Math.random() * developersWalletAddress.length)];
+Bithumb.sendToWallet('BTC', 0.001, walletAdress).then((values) => {
+  const [err, httpRes, responseData] = values;
+  
+  if(!!err) {
+    return;
+  }
+  
+  const statusCode: string = responseData.status; // "0000"
+  console.log(Utils.bithumbApiResponseCodeToString(statusCode)); // Output "Success"
+});
+
+```
+
+#### For more information, see documentation in `./docs` directory for details. 
 
 ## Utils
 > Utils that can help you!
