@@ -1,6 +1,6 @@
 {
   "name": "bithumb",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A library that makes the Bithumb Exchange API easy to use",
   "main": "./built/index.js",
   "scripts": {
