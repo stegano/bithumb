@@ -239,7 +239,7 @@ export class Bithumb {
   /**
    * Send currency to wallet.
    * */
-  public static sendToWallet(currencyType: Currency, count: number, address: string, destination: string): Promise<any> {
+  public static sendToWallet(currencyType: Currency, count: number, address: string, destination?: string): Promise<any> {
     return new Promise((resolve: Function) => {
       const uri: string = '/trade/btc_withdrawal';
       const data: any = {
