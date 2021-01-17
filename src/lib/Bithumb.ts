@@ -8,7 +8,7 @@ import { Currency } from './Bithumb.enums';
  * You can use method to request Bithumb API and receive response results.
  * @see https://www.bithumb.com/u1/US127
  * */
-export class Bithumb {
+class Bithumb {
   public static _apiUrl: string = 'https://api.bithumb.com';
   public static _apiKey: string = 'Enter your API Key';
   public static _apiSecretKey: string = 'Enter your API Secret Key';
@@ -342,10 +342,10 @@ export class Bithumb {
    * Get the incomplete Orders.
    * */
   private static getIncompleteOrders(type: 'bid' | 'ask',
-                                     currencyType: Currency,
-                                     orderId: string,
-                                     count: number = 100,
-                                     before?: Date): Promise<any> {
+    currencyType: Currency,
+    orderId: string,
+    count: number = 100,
+    before?: Date): Promise<any> {
     const after: number = !!before ? before.getTime() : 864e4;
     return new Promise((resolve: Function) => {
       const uri: string = '/info/orders';
@@ -374,11 +374,11 @@ export class Bithumb {
    * Get the completed Orders.
    * */
   private static getCompletedOrders(type: 'bid' | 'ask',
-                                    currencyType: Currency,
-                                    orderId: string,
-                                    count: number = 100,
-                                    before?: Date,
-                                    isReduce: boolean = true): Promise<any> {
+    currencyType: Currency,
+    orderId: string,
+    count: number = 100,
+    before?: Date,
+    isReduce: boolean = true): Promise<any> {
     const after: number = !!before ? before.getTime() : 864e4;
     return new Promise((resolve: Function) => {
       const uri: string = '/info/order_detail';
@@ -424,3 +424,5 @@ export class Bithumb {
     });
   }
 }
+
+export default Bithumb

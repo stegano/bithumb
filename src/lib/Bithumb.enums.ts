@@ -1,7 +1,7 @@
 /**
  * Currency Kinds.
  * */
-export enum Currency {
+enum Currency {
   BTC = 'BTC',
   ETH = 'ETH',
   DASH = 'DASH',
@@ -34,3 +34,5 @@ export enum Currency {
   STEEM = 'STEEM',
   STRAT = 'STRAT'
 }
+
+export default Currency;

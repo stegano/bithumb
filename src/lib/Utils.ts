@@ -1,4 +1,4 @@
-export class Utils {
+class Utils {
   /**
    * Adjust the transaction amount to the unit allowed by the Bithumb Exchange API.
    * */
@@ -81,3 +81,5 @@ export class Utils {
     }
   }
 }
+
+export default Utils;

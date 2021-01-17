@@ -15,7 +15,11 @@
   },
   "author": "Jung Yongwoo",
   "license": "MIT",
-  "keywords": ["coin", "bithumb"],
+  "keywords": [
+    "coin",
+    "bithumb",
+    "BTC"
+  ],
   "bugs": {
     "url": "https://github.com/stegano/bithumb/issues"
   },

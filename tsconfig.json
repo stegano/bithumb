@@ -1,13 +1,27 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "module": "es6",
+    "target": "es5",
+    "module": "esnext",
+    "outDir": "build",
+    "sourceMap": false,
+    "strict": true,
     "lib": [
-      "es6"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true
-  }
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "declaration": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
