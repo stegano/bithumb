@@ -32,7 +32,8 @@ enum Currency {
   LRC = 'LRC',
   GTO = 'GTO',
   STEEM = 'STEEM',
-  STRAT = 'STRAT'
+  STRAT = 'STRAT',
+  KRW = 'KRW',
 }
 
 export default Currency;

@@ -1,7 +1,7 @@
 import * as request from 'request';
 import * as queryString from 'querystring';
 import * as CryptoJS from 'crypto-js';
-import { Currency } from './Bithumb.enums';
+import Currency from './Bithumb.enums';
 
 /**
  * This Class is for easy use of the Bithumb API.
@@ -42,15 +42,15 @@ class Bithumb {
   /**
    * Place a purchase order at the specified price.
    * */
-  public static purchaseOrder(currencyType: Currency, price: number, count: number): Promise<any> {
-    return Bithumb.order('bid', currencyType, price, count);
+  public static purchaseOrder(currencyType: Currency, price: number, count: number, paymentCurreny: Currency): Promise<any> {
+    return Bithumb.order('bid', currencyType, price, count, paymentCurreny);
   }
 
   /**
    * Place a sales order at the specified price.
    * */
-  public static saleOrder(currencyType: Currency, price: number, count: number): Promise<any> {
-    return Bithumb.order('ask', currencyType, price, count);
+  public static saleOrder(currencyType: Currency, price: number, count: number, paymentCurreny: Currency): Promise<any> {
+    return Bithumb.order('ask', currencyType, price, count, paymentCurreny);
   }
 
   /**
@@ -316,14 +316,15 @@ class Bithumb {
   /**
    * Order at the specified price.
    * */
-  private static order(type: 'bid' | 'ask', currencyType: Currency, price: number, count: number): Promise<any> {
+  private static order(type: 'bid' | 'ask', currencyType: Currency, price: number, count: number, paymentCurrency: Currency = Currency.KRW): Promise<any> {
     return new Promise((resolve: Function) => {
       const uri: string = '/trade/place';
       const data: any = {
         type,
         price,
         order_currency: currencyType,
-        units: count
+        units: count,
+        payment_currency: paymentCurrency
       };
       request.post({
         url: `${Bithumb._apiUrl}${uri}`,

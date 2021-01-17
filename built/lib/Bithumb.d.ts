@@ -1,4 +1,4 @@
-import { Currency } from './Bithumb.enums';
+import Currency from './Bithumb.enums';
 /**
  * This Class is for easy use of the Bithumb API.
  * You can use method to request Bithumb API and receive response results.
@@ -20,11 +20,11 @@ declare class Bithumb {
     /**
      * Place a purchase order at the specified price.
      * */
-    static purchaseOrder(currencyType: Currency, price: number, count: number): Promise<any>;
+    static purchaseOrder(currencyType: Currency, price: number, count: number, paymentCurreny: Currency): Promise<any>;
     /**
      * Place a sales order at the specified price.
      * */
-    static saleOrder(currencyType: Currency, price: number, count: number): Promise<any>;
+    static saleOrder(currencyType: Currency, price: number, count: number, paymentCurreny: Currency): Promise<any>;
     /**
      * Place a purchase order at a market price.
      * */
@@ -88,7 +88,7 @@ declare class Bithumb {
     /**
      * Order at the specified price.
      * */
-    private static order(type, currencyType, price, count);
+    private static order(type, currencyType, price, count, paymentCurrency?);
     /**
      * Get the incomplete Orders.
      * */

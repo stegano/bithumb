@@ -33,5 +33,6 @@ declare enum Currency {
     GTO = "GTO",
     STEEM = "STEEM",
     STRAT = "STRAT",
+    KRW = "KRW",
 }
 export default Currency;
