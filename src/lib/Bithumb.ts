@@ -56,13 +56,14 @@ class Bithumb {
   /**
    * Place a purchase order at a market price.
    * */
-  public static purchaseOrderAtMarkerPrice(currencyType: Currency, count: number): Promise<any> {
+  public static purchaseOrderAtMarkerPrice(currencyType: Currency, count: number, paymentCurrency: Currency): Promise<any> {
     return new Promise((resolve: Function) => {
       const uri: string = '/trade/market_buy';
       const data: any = {
-        currency: currencyType,
+        order_currency: currencyType,
+        payment_currency: paymentCurrency,
         units: count,
-        endpoint: encodeURIComponent(uri)
+        // endpoint: encodeURIComponent(uri),
       };
       request.post({
         url: `${Bithumb._apiUrl}${uri}`,
@@ -80,12 +81,13 @@ class Bithumb {
   /**
    * Place a sales order at a market price.
    * */
-  public static saleOrderAtMarketPrice(currencyType: Currency, count: number): Promise<any> {
+  public static saleOrderAtMarketPrice(currencyType: Currency, count: number, paymentCurrency: Currency): Promise<any> {
     return new Promise((resolve: Function) => {
       const uri: string = '/trade/market_sell';
       const data: any = {
-        currency: currencyType,
-        units: count
+        order_currency: currencyType,
+        payment_currency: paymentCurrency,
+        units: count,
       };
       request.post({
         url: `${Bithumb._apiUrl}${uri}`,
@@ -346,7 +348,8 @@ class Bithumb {
     currencyType: Currency,
     orderId: string,
     count: number = 100,
-    before?: Date): Promise<any> {
+    before?: Date,
+    paymentCurrencyType: Currency = Currency.KRW): Promise<any> {
     const after: number = !!before ? before.getTime() : 864e4;
     return new Promise((resolve: Function) => {
       const uri: string = '/info/orders';
@@ -355,7 +358,8 @@ class Bithumb {
         after,
         count,
         order_id: orderId,
-        currency: currencyType,
+        order_currency: currencyType,
+        payment_currency: paymentCurrencyType,
         endpoint: encodeURIComponent(uri)
       };
       request.post({
@@ -379,7 +383,8 @@ class Bithumb {
     orderId: string,
     count: number = 100,
     before?: Date,
-    isReduce: boolean = true): Promise<any> {
+    isReduce: boolean = true,
+    paymentCurrencyType: Currency = Currency.KRW,): Promise<any> {
     const after: number = !!before ? before.getTime() : 864e4;
     return new Promise((resolve: Function) => {
       const uri: string = '/info/order_detail';
@@ -388,7 +393,8 @@ class Bithumb {
         after,
         count,
         order_id: orderId,
-        currency: currencyType,
+        order_currency: currencyType,
+        payment_currency: paymentCurrencyType,
         endpoint: encodeURIComponent(uri)
       };
       request.post({
