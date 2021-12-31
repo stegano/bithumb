@@ -28,11 +28,11 @@ declare class Bithumb {
     /**
      * Place a purchase order at a market price.
      * */
-    static purchaseOrderAtMarkerPrice(currencyType: Currency, count: number): Promise<any>;
+    static purchaseOrderAtMarkerPrice(currencyType: Currency, count: number, paymentCurrency: Currency): Promise<any>;
     /**
      * Place a sales order at a market price.
      * */
-    static saleOrderAtMarketPrice(currencyType: Currency, count: number): Promise<any>;
+    static saleOrderAtMarketPrice(currencyType: Currency, count: number, paymentCurrency: Currency): Promise<any>;
     /**
      * Cancel the incomplete purchase order.
      * */
@@ -92,10 +92,10 @@ declare class Bithumb {
     /**
      * Get the incomplete Orders.
      * */
-    private static getIncompleteOrders(type, currencyType, orderId, count?, before?);
+    private static getIncompleteOrders(type, currencyType, orderId, count?, before?, paymentCurrencyType?);
     /**
      * Get the completed Orders.
      * */
-    private static getCompletedOrders(type, currencyType, orderId, count?, before?, isReduce?);
+    private static getCompletedOrders(type, currencyType, orderId, count?, before?, isReduce?, paymentCurrencyType?);
 }
 export default Bithumb;
