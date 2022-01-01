@@ -105,15 +105,15 @@ class Bithumb {
   /**
    * Cancel the incomplete purchase order.
    * */
-  public static cancelPurchaseOrder(currencyType: Currency, orderId: string): Promise<any> {
-    return Bithumb.cancelOrder('bid', currencyType, orderId);
+  public static cancelPurchaseOrder(currencyType: Currency, orderId: string, paymentCurrency: Currency = Currency.KRW): Promise<any> {
+    return Bithumb.cancelOrder('bid', currencyType, orderId, paymentCurrency);
   }
 
   /**
    * Cancel the incomplete sales order.
    * */
-  public static cancelSaleOrder(currencyType: Currency, orderId: string): Promise<any> {
-    return Bithumb.cancelOrder('ask', currencyType, orderId);
+  public static cancelSaleOrder(currencyType: Currency, orderId: string, paymentCurrency: Currency = Currency.KRW): Promise<any> {
+    return Bithumb.cancelOrder('ask', currencyType, orderId, paymentCurrency);
   }
 
   /**
@@ -292,7 +292,7 @@ class Bithumb {
   /**
    * Cancel incomplete orders.
    * */
-  private static cancelOrder(type: 'bid' | 'ask', currencyType: Currency, orderId: string): Promise<any> {
+  private static cancelOrder(type: 'bid' | 'ask', currencyType: Currency, orderId: string, paymentCurrency: Currency = Currency.KRW): Promise<any> {
     return new Promise((resolve: Function) => {
       const uri: string = '/trade/cancel';
       const data: any = {
@@ -301,6 +301,7 @@ class Bithumb {
         apiKey: Bithumb._apiKey,
         secretKey: Bithumb._apiSecretKey,
         currency: currencyType,
+        payment_currency: paymentCurrency
       };
       request.post({
         url: `${Bithumb._apiUrl}${uri}`,
