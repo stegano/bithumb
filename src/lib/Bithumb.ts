@@ -300,7 +300,7 @@ class Bithumb {
         order_id: orderId,
         apiKey: Bithumb._apiKey,
         secretKey: Bithumb._apiSecretKey,
-        currency: currencyType,
+        order_currency: currencyType,
         payment_currency: paymentCurrency
       };
       request.post({
