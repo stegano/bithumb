@@ -36,11 +36,11 @@ declare class Bithumb {
     /**
      * Cancel the incomplete purchase order.
      * */
-    static cancelPurchaseOrder(currencyType: Currency, orderId: string): Promise<any>;
+    static cancelPurchaseOrder(currencyType: Currency, orderId: string, paymentCurrency?: Currency): Promise<any>;
     /**
      * Cancel the incomplete sales order.
      * */
-    static cancelSaleOrder(currencyType: Currency, orderId: string): Promise<any>;
+    static cancelSaleOrder(currencyType: Currency, orderId: string, paymentCurrency?: Currency): Promise<any>;
     /**
      * Get the incomplete purchase Orders.
      * */
@@ -84,7 +84,7 @@ declare class Bithumb {
     /**
      * Cancel incomplete orders.
      * */
-    private static cancelOrder(type, currencyType, orderId);
+    private static cancelOrder(type, currencyType, orderId, paymentCurrency?);
     /**
      * Order at the specified price.
      * */
