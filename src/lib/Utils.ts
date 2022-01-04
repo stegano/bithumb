@@ -27,6 +27,13 @@ class Utils {
       return amount + (diff >= 100 / 2 ? +weight : -diff);
     }
 
+    // 50
+    if (amount >= 50000) {
+      diff = amount % 50;
+      weight = 50 - diff;
+      return amount + (diff >= 50 / 2 ? +weight : -diff);
+    }
+
     // 10
     if (amount >= 10000) {
       diff = amount % 10;
